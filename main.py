@@ -1,10 +1,18 @@
 from typing import Union
 from fastapi import FastAPI
+from pydantic import BaseModel
 
 # Creacion de una aplicacion FastAPI:
 app = FastAPI()
 
 aplicacion = FastAPI()
+
+
+class Item(BaseModel):
+    name: str
+    price: float
+    is_offer: Union[bool, None] = None
+
 
 @app.get('/')
 def read_mundo():
@@ -16,6 +24,7 @@ def hola_mundo():
 
 @app.get('/items/{item_id}')
 def read_item(item_id: int, q: Union[str, None] = None):
+# = None significa opcional
     return {'item_id': item_id, 'q': q}
 
 
