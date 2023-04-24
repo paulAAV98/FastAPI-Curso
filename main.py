@@ -1,6 +1,6 @@
 from typing import Union
 from fastapi import FastAPI
-from pydantic import BaseModel
+
 
 # Creacion de una aplicacion FastAPI:
 app = FastAPI()
@@ -8,10 +8,7 @@ app = FastAPI()
 aplicacion = FastAPI()
 
 
-class Item(BaseModel):
-    name: str
-    price: float
-    is_offer: Union[bool, None] = None
+
 
 
 @app.get('/')
