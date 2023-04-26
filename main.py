@@ -24,8 +24,8 @@ def read_item(item_id: int, q: Union[str, None] = None):
 # = None significa opcional
     return {'item_id': item_id, 'q': q}
 
-@app.get('/calculadora/{numero_1}{numero_2}')
-def calculadora(numero_1: int, numero_2: int):
+@app.get('/calculadora')
+def calculadora(numero_1: float, numero_2: float):
     return {'resultado': numero_1 + numero_2}
 
 @app.put('/items/{item_id}')
